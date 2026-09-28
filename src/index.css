@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-mono: 'DM Mono', 'Space Mono', monospace;
+  --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', 'DM Serif Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Restrained, Personal Retro Archive Palette */
+  --color-ink: #171615;
+  --color-ink-light: #24201D;
+  --color-paper: #F1E8D8;
+  --color-paper-light: #F9F3E8;
+  --color-paper-dark: #E5D8BF;
+  --color-retro-red: #C94A3A;
+  --color-dark-red: #8F2F27;
+  --color-retro-blue: #6D7F8F;
+  --color-retro-gold: #C9A65A;
+  --color-text-dark: #24201D;
+  --color-text-muted: #746A60;
+  --color-retro-brown: #3A3028;
+  --color-tape: rgba(249, 243, 232, 0.75);
+}
+
+html {
+  background-color: #171615;
+  color: #F1E8D8;
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #171615;
+  color: #F1E8D8;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle CSS Grain / Noise Filter */
+.bg-grain {
+  background-image: radial-gradient(rgba(241, 232, 216, 0.035) 1px, transparent 0),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 24px 24px, auto;
+}
+
+/* Tactile Vintage Shadows */
+.shadow-retro-sm {
+  box-shadow: 2px 2px 0px #171615;
+}
+
+.shadow-retro {
+  box-shadow: 4px 4px 0px #171615;
+}
+
+.shadow-retro-lg {
+  box-shadow: 7px 7px 0px #171615;
+}
+
+.shadow-paper-sm {
+  box-shadow: 3px 3px 0px #24201D;
+}
+
+.shadow-paper {
+  box-shadow: 5px 5px 0px #24201D;
+}
+
+.shadow-paper-lg {
+  box-shadow: 8px 8px 0px #24201D;
+}
+
+/* Editorial Dotted / Dashed Borders */
+.border-vintage-dashed {
+  border: 1px dashed rgba(58, 48, 40, 0.35);
+}
+
+/* Mask for subtle tape torn edge */
+.tape-strip {
+  background: var(--color-tape);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(1px);
+  clip-path: polygon(0% 4%, 3% 0%, 97% 2%, 100% 6%, 98% 96%, 95% 100%, 2% 98%, 0% 92%);
+}
+
+/* Text Selection */
+::selection {
+  background-color: #C94A3A;
+  color: #F9F3E8;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171615;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3A3028;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C94A3A;
+}
+
+/* Paper / Modal Scrollbar */
+.paper-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.paper-scrollbar::-webkit-scrollbar-track {
+  background: #E5D8BF;
+}
+
+.paper-scrollbar::-webkit-scrollbar-thumb {
+  background: #746A60;
+  border-radius: 2px;
+}
+
+.paper-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #C94A3A;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reduce motion media query */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

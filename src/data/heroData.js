@@ -1,0 +1,21 @@
+export const heroData = {
+  fullName: "Elok Chandra Kirana",
+  displayName: "ELOK",
+  alias: "EL",
+  role: "STUDENT / DEVELOPER",
+  tagline: "I build things, experiment with technology, and learn how they work.",
+  school: "SMK Negeri 7 Semarang",
+  major: "SIJA — Sistem Informasi, Jaringan, dan Aplikasi",
+  graduation: "2028",
+  location: "Semarang, Indonesia",
+  archiveRef: "VOL. 26 / ARCHIVE 01",
+  status: "STUDENT / DEVELOPER • ACTIVE",
+  interests: [
+    { label: "Networking", code: "01", note: "Routing, Switching & Systems" },
+    { label: "Cybersecurity", code: "02", note: "Linux, Protocols & Defense" },
+    { label: "Web Development", code: "03", note: "React, JavaScript & APIs" },
+    { label: "UI/UX Design", code: "04", note: "Figma & Editorial Interfaces" },
+    { label: "IoT", code: "05", note: "Telemetry & Connected Devices" },
+  ],
+  editionNote: "PERSONAL PORTFOLIO ARCHIVE — 2026",
+};
