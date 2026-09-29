@@ -6,11 +6,9 @@ import {
   Send,
   Mail,
   MapPin,
-  Clock,
   CheckCircle2,
   Copy,
   Check,
-  Radio,
 } from 'lucide-react';
 
 const GithubIcon = ({ className = "w-4 h-4" }) => (
@@ -55,7 +53,7 @@ export default function Contact() {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 900);
+    }, 800);
   };
 
   const handleCopyEmail = () => {
@@ -79,46 +77,45 @@ export default function Contact() {
     <section id="contact" className="py-16 sm:py-24 relative select-none">
       <SectionTitle
         index="04"
-        tag="FINAL ARCHIVE PAGE"
-        title="Let's Connect"
-        subtitle={contactData.subtitle}
+        tag="CONTACT"
+        title="Get in Touch"
+        subtitle="Feel free to reach out for questions, collaborations, or just to say hello."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        {/* LEFT COLUMN: Dispatch Form (7 Cols) */}
+        {/* LEFT COLUMN: Message Form (7 Cols) */}
         <div className="lg:col-span-7">
           <div className="relative bg-[#F1E8D8] text-[#24201D] p-6 sm:p-8 border border-[#3A3028]/40 shadow-paper rounded-xs">
             
             {/* Top Tape */}
             <div className="absolute -top-3 left-8 w-20 h-5 tape-strip pointer-events-none" />
 
-            <div className="flex items-center justify-between border-b border-[#3A3028]/20 pb-3 mb-6 font-mono text-xs">
-              <div className="flex items-center gap-2 text-[#C94A3A] font-bold">
-                <Radio className="w-4 h-4 animate-pulse" />
-                <span>DIRECT MESSAGE</span>
-              </div>
-              <span className="text-[#746A60]">SEMARANG, ID</span>
+            <div className="flex items-center justify-between border-b border-[#3A3028]/20 pb-3 mb-5 font-mono text-xs">
+              <span className="font-bold text-[#C94A3A]">
+                SEND A MESSAGE
+              </span>
+              <span className="text-[#746A60]">Semarang, Indonesia</span>
             </div>
 
             {isSubmitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-[#F9F3E8] border-2 border-[#C94A3A] p-6 sm:p-8 text-center space-y-4 my-4 rounded-xs"
+                className="bg-[#F9F3E8] border border-[#C94A3A]/40 p-6 sm:p-8 text-center space-y-3 my-4 rounded-xs"
               >
-                <div className="inline-flex items-center justify-center p-3 bg-[#C94A3A] text-[#F9F3E8] rounded-full mb-2 shadow-paper-sm">
-                  <CheckCircle2 className="w-8 h-8" />
+                <div className="inline-flex items-center justify-center p-2.5 bg-[#C94A3A] text-[#F9F3E8] rounded-full mb-1">
+                  <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <h3 className="font-serif text-2xl text-[#24201D]">
-                  MESSAGE SENT!
+                  Message Sent!
                 </h3>
                 <p className="font-body text-xs sm:text-sm text-[#3A3028] leading-relaxed max-w-md mx-auto">
-                  Thank you for reaching out. Your note has been received, and I will get back to you soon.
+                  Thank you for reaching out. I have received your message and will reply soon.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="mt-4 px-4 py-2 bg-[#171615] text-[#F1E8D8] font-mono text-xs font-bold uppercase hover:bg-[#C94A3A] transition-colors cursor-pointer border border-[#3A3028] rounded-xs"
+                  className="mt-3 px-4 py-2 bg-[#171615] text-[#F1E8D8] font-mono text-xs font-bold uppercase hover:bg-[#C94A3A] transition-colors cursor-pointer border border-[#3A3028] rounded-xs"
                 >
                   SEND ANOTHER MESSAGE
                 </button>
@@ -127,7 +124,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#3A3028] font-bold mb-1 uppercase text-[11px]">
+                    <label className="block text-[#3A3028] font-semibold mb-1 text-[11px]">
                       YOUR NAME *
                     </label>
                     <input
@@ -136,13 +133,13 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Alex"
-                      className="w-full px-3 py-2.5 bg-[#F9F3E8] border border-[#3A3028]/30 text-[#24201D] focus:border-[#C94A3A] focus:outline-none transition-colors rounded-xs"
+                      placeholder="Your name"
+                      className="w-full px-3 py-2.5 bg-[#F9F3E8] border border-[#3A3028]/30 text-[#24201D] focus:border-[#C94A3A] focus:outline-none transition-colors rounded-xs font-body text-xs sm:text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[#3A3028] font-bold mb-1 uppercase text-[11px]">
+                    <label className="block text-[#3A3028] font-semibold mb-1 text-[11px]">
                       YOUR EMAIL *
                     </label>
                     <input
@@ -151,14 +148,14 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="alex@example.com"
-                      className="w-full px-3 py-2.5 bg-[#F9F3E8] border border-[#3A3028]/30 text-[#24201D] focus:border-[#C94A3A] focus:outline-none transition-colors rounded-xs"
+                      placeholder="email@example.com"
+                      className="w-full px-3 py-2.5 bg-[#F9F3E8] border border-[#3A3028]/30 text-[#24201D] focus:border-[#C94A3A] focus:outline-none transition-colors rounded-xs font-body text-xs sm:text-sm"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[#3A3028] font-bold mb-1 uppercase text-[11px]">
+                  <label className="block text-[#3A3028] font-semibold mb-1 text-[11px]">
                     SUBJECT *
                   </label>
                   <input
@@ -167,35 +164,31 @@ export default function Contact() {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="e.g. Project Discussion / Networking / Questions"
-                    className="w-full px-3 py-2.5 bg-[#F9F3E8] border border-[#3A3028]/30 text-[#24201D] focus:border-[#C94A3A] focus:outline-none transition-colors rounded-xs"
+                    placeholder="Subject of your message"
+                    className="w-full px-3 py-2.5 bg-[#F9F3E8] border border-[#3A3028]/30 text-[#24201D] focus:border-[#C94A3A] focus:outline-none transition-colors rounded-xs font-body text-xs sm:text-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[#3A3028] font-bold mb-1 uppercase text-[11px]">
+                  <label className="block text-[#3A3028] font-semibold mb-1 text-[11px]">
                     MESSAGE *
                   </label>
                   <textarea
                     name="message"
                     required
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Write your note or question here..."
+                    placeholder="Write your message here..."
                     className="w-full px-3 py-2.5 bg-[#F9F3E8] border border-[#3A3028]/30 text-[#24201D] focus:border-[#C94A3A] focus:outline-none transition-colors resize-none font-body text-xs sm:text-sm rounded-xs"
                   />
                 </div>
 
-                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
-                  <span className="text-[10px] text-[#746A60]">
-                    * Response within 24–48 hours
-                  </span>
-
+                <div className="pt-2 flex items-center justify-end">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-6 py-2.5 bg-[#171615] text-[#F1E8D8] hover:bg-[#C94A3A] hover:text-[#F9F3E8] transition-all font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-paper-sm disabled:opacity-50 rounded-xs"
+                    className="px-5 py-2.5 bg-[#171615] text-[#F1E8D8] hover:bg-[#C94A3A] hover:text-[#F9F3E8] transition-all font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-paper-sm disabled:opacity-50 rounded-xs"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}</span>
@@ -207,57 +200,46 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Contact Info & Channels (5 Cols) */}
-        <div className="lg:col-span-5 space-y-5">
+        {/* RIGHT COLUMN: Contact Info & Links (5 Cols) */}
+        <div className="lg:col-span-5 space-y-4">
           
           {/* Direct Email Card */}
-          <div className="relative bg-[#F9F3E8] text-[#24201D] p-6 border border-[#3A3028]/30 shadow-paper rounded-xs">
+          <div className="relative bg-[#F9F3E8] text-[#24201D] p-5 sm:p-6 border border-[#3A3028]/30 shadow-paper rounded-xs">
             <div className="absolute -top-2.5 right-6 w-16 h-4 tape-strip pointer-events-none" />
 
             <span className="font-mono text-xs font-bold text-[#C94A3A] uppercase block mb-3">
-              [ DIRECT EMAIL ]
+              CONTACT INFORMATION
             </span>
 
-            <div className="space-y-4 font-mono text-xs">
+            <div className="space-y-3 font-mono text-xs">
               <div className="p-3 bg-[#F1E8D8] border border-[#3A3028]/20 flex items-center justify-between gap-2 rounded-xs">
                 <div className="truncate">
-                  <span className="text-[10px] text-[#746A60] block uppercase">EMAIL ADDRESS</span>
-                  <span className="text-[#24201D] font-bold truncate text-xs sm:text-sm">{contactData.email}</span>
+                  <span className="text-[10px] text-[#746A60] block uppercase">EMAIL</span>
+                  <span className="text-[#24201D] font-semibold truncate text-xs sm:text-sm">{contactData.email}</span>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="p-2 bg-[#3A3028]/10 hover:bg-[#C94A3A] hover:text-[#F9F3E8] transition-colors rounded-xs cursor-pointer shrink-0"
-                  title="Copy email"
+                  className="p-1.5 bg-[#3A3028]/10 hover:bg-[#C94A3A] hover:text-[#F9F3E8] transition-colors rounded-xs cursor-pointer shrink-0"
+                  title="Copy email address"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-[#C94A3A]" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
 
-              <div className="flex items-start gap-2.5 text-[#3A3028]">
-                <MapPin className="w-4 h-4 text-[#C94A3A] shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-[10px] text-[#746A60] block uppercase">LOCATION</span>
-                  <span className="font-bold text-[#24201D]">{contactData.location}</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5 text-[#3A3028]">
-                <Clock className="w-4 h-4 text-[#6D7F8F] shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-[10px] text-[#746A60] block uppercase">STATUS</span>
-                  <span className="font-bold text-[#C94A3A]">{contactData.status} • {contactData.school}</span>
-                </div>
+              <div className="flex items-center gap-2 text-[#3A3028]">
+                <MapPin className="w-3.5 h-3.5 text-[#C94A3A] shrink-0" />
+                <span className="text-xs">{contactData.location}</span>
               </div>
             </div>
           </div>
 
-          {/* Social Channels Card */}
-          <div className="bg-[#171615] border border-[#F1E8D8]/20 p-6 shadow-retro rounded-xs font-mono text-xs text-[#F9F3E8]">
+          {/* Social Links Card */}
+          <div className="bg-[#171615] border border-[#F1E8D8]/20 p-5 sm:p-6 shadow-retro rounded-xs font-mono text-xs text-[#F9F3E8]">
             <span className="font-mono text-xs font-bold text-[#C9A65A] uppercase tracking-wider block mb-3">
-              [ ONLINE CHANNELS ]
+              LINKS & PROFILES
             </span>
 
-            <div className="space-y-2.5">
+            <div className="space-y-2">
               {contactData.socials.map((social, idx) => (
                 <a
                   key={idx}
@@ -270,12 +252,9 @@ export default function Contact() {
                     <span className="p-1 bg-[#F1E8D8]/10 text-[#C9A65A] group-hover:text-[#C94A3A] transition-colors rounded-xs">
                       {getSocialIcon(social.name)}
                     </span>
-                    <div>
-                      <span className="text-[#F9F3E8] font-bold block">{social.name}</span>
-                      <span className="text-[10px] text-[#F1E8D8]/50">{social.desc}</span>
-                    </div>
+                    <span className="font-semibold text-[#F9F3E8]">{social.name}</span>
                   </div>
-                  <span className="text-[#C9A65A] text-[10px] group-hover:translate-x-0.5 transition-transform">
+                  <span className="text-[#C9A65A] text-xs group-hover:translate-x-0.5 transition-transform font-bold">
                     &rarr;
                   </span>
                 </a>

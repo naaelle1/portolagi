@@ -3,12 +3,12 @@ import { CheckCircle2, Cpu } from 'lucide-react';
 export default function ProjectProcess({ contributions = [], tags = [] }) {
   return (
     <div className="space-y-4">
-      {/* 03. MY CONTRIBUTION */}
+      {/* 03. MY ROLE */}
       {contributions.length > 0 && (
         <div className="p-4 sm:p-5 bg-[#F9F3E8] border border-[#3A3028]/25 rounded-xs">
           <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#C94A3A] border-b border-[#3A3028]/15 pb-2 mb-3">
             <span className="font-bold">03.</span>
-            <span className="tracking-wider uppercase">MY CONTRIBUTION</span>
+            <span className="tracking-wider uppercase">MY ROLE</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 font-mono text-xs">
