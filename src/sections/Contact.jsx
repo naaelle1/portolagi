@@ -33,7 +33,6 @@ export default function Contact() {
     subject: '',
     message: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -45,15 +44,38 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/elokchandra13@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || "New Portfolio Contact Message",
+          message: formData.message,
+          _captcha: "false",
+          _template: "table",
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert("There was an issue sending your message. Please try again or email directly.");
+      }
+    } catch {
+      alert("Network error. Please try again or email directly.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 800);
+    }
   };
 
   const handleCopyEmail = () => {
@@ -121,7 +143,10 @@ export default function Contact() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4 font-mono text-xs"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[#3A3028] font-semibold mb-1 text-[11px]">
@@ -156,12 +181,11 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-[#3A3028] font-semibold mb-1 text-[11px]">
-                    SUBJECT *
+                    SUBJECT
                   </label>
                   <input
                     type="text"
                     name="subject"
-                    required
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Subject of your message"
@@ -188,7 +212,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-5 py-2.5 bg-[#171615] text-[#F1E8D8] hover:bg-[#C94A3A] hover:text-[#F9F3E8] transition-all font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-paper-sm disabled:opacity-50 rounded-xs"
+                    className="px-5 py-2.5 bg-[#171615] text-[#F1E8D8] hover:bg-[#C94A3A] hover:text-[#F9F3E8] transition-all font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-paper-sm rounded-xs disabled:opacity-50"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}</span>

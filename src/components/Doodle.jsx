@@ -74,9 +74,6 @@ export default function Doodle({ type, className = "", color = "currentColor", t
         <div
           className={`inline-flex flex-col items-center justify-center px-3 py-1.5 border-2 border-dashed border-[#C94A3A] rotate-6 bg-[#C94A3A]/10 rounded-xs select-none ${className}`}
         >
-          <span className="font-mono text-[8px] tracking-widest text-[#C94A3A] uppercase font-bold">
-            STUDENT ARCHIVE
-          </span>
           <span className="font-serif text-xs text-[#C94A3A] font-extrabold uppercase tracking-tight">
             {text || "VERIFIED"}
           </span>
